@@ -7,7 +7,6 @@ import { Http } from '@angular/http';
   styleUrls: ['./app.component.css']
 })
 
-
 export class AppComponent {
   // doesn't need to be anything as 
 }
