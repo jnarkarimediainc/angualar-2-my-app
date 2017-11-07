@@ -1,0 +1,35 @@
+<div style="text-align:center">
+    <h1>
+        {{title}} List.
+    </h1>
+    <img style="display: none;" width="300" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+</div>
+<hr/>
+<div class="emp-info">
+    <div><label>Name</label>: {{name}}</div>
+    <div><label>Full Name</label>: {{fullName}}</div>
+    <div><label>Email</label>: {{email}}</div>
+    <div><label>Address</label>: {{address.street}} {{address.city}} {{address.state}} {{address.zip}}</div>
+    <hr/>
+    <button (click)=toggleHobbies()>{{!showHobbies?'Show':'Hide'}} Hobbies</button>
+    <div *ngIf="showHobbies">
+        <form>
+            <label>Add Hobby</label>
+            <input type="text" #hobby />
+            <button (click)="addHobby(hobby.value)">Add Hobby</button><br/>
+            <span style="color:red;">{{hobbyError}}</span>
+        </form>
+        <label>Hobbies</label><br/>
+        <ul *ngFor="let hobby of hobbies;let i = index">
+            <li>{{hobby}} <button (click)="deleteHobby(i)">X</button></li>
+        </ul>
+    </div>
+    <form>
+        <label>Name:</label>
+        <input type="text" name="name" [(ngModel)]="name" />
+        <br/>
+        <label>Email:</label>
+        <input type="text" name="email" [(ngModel)]="email" />
+        <br/>
+    </form>
+</div>
