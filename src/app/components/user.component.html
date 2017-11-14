@@ -6,6 +6,9 @@
 </div>
 <hr/>
 <div class="emp-info">
+    <div>{{TestProp}}</div>
+    <input type="text" [(ngModel)]="TestProp" />
+    <button (click)="ReadValue()">Read Above Value</button>
     <div><label>Name</label>: {{name}}</div>
     <div><label>Full Name</label>: {{fullName}}</div>
     <div><label>Email</label>: {{email}}</div>
@@ -36,7 +39,37 @@
     <div>
         The list of the Employees
     </div>
-    <!-- <ul *ngFor="let emp in employees">
-        <li>Employee: {{emp.FirstName}}, {{emp.LastName}} your id is</li>
-    </ul> -->
+    <div>
+        <h2>Add Employee</h2>
+        <form #form_add_empl>
+            <label>First Name:<input type="text" name="firstName" #firstName /> </label>
+            <br/>
+            <label>Last Name: <input type="text" name="lastName"/></label>
+            <br/>
+            <label>Id:<input type="text" name="lastName"/></label>
+            <br/>
+            <button (click)="addEmployee(this)">Add Employee</button>
+        </form>
+    </div>
+    <ul *ngFor="let emp of employees">
+        <li>Employee: {{emp.LastName}}, {{emp.FirstName}} your id is {{emp.id}} </li>
+    </ul>
+
+    <hr/>
+    <h1>Post from service</h1>
+    <div *ngIf="detailPost != null">
+        <h1>Detail Post</h1>
+        <div>id: {{detailPost.id}}</div>
+        <div>user id: {{detailPost.userId}}</div>
+        <div>title: {{detailPost.title}}</div>
+        <div> body: {{detailPost.body}}</div>
+        <div><button (click)="backToListing()">Back to listing</button></div>
+    </div>
+    <div *ngIf="detailPost == null">
+        <div *ngFor="let post of posts">
+            <h3>{{post.title}}</h3>
+            <h4 (click)="postClicked(post)">{{post.id}}. {{post.body}}</h4>
+        </div>
+    </div>
+
 </div>

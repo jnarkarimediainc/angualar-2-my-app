@@ -1,17 +1,19 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
-import { UserComponent} from './components/user.component';
-import { TestComponent} from './components/test.component';
+import { UserComponent } from './components/user.component';
+import { TestComponent } from './components/test.component';
+import { HeroesComponent } from './components/heroes/heroes.component';
 
 @NgModule({
   declarations: [
-    AppComponent, UserComponent, TestComponent
+    AppComponent, UserComponent, TestComponent, HeroesComponent
   ],
   imports: [
-    BrowserModule, FormsModule
+    BrowserModule, FormsModule, HttpModule
   ],
   providers: [],
   bootstrap: [AppComponent]
